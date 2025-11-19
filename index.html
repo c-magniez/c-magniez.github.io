@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clément Magniez Website</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: 20px;
+      padding: 16px;
+      background: #333;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Tab content styling */
+    .tab {
+      display: none;
+      padding: 24px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    /* WebGL canvas container */
+    #webgl-container {
+      width: 100%;
+      height: 400px;
+      background: black;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a onclick="openTab('home')">Home</a>
+    <a onclick="openTab('projects')">Projects</a>
+    <a onclick="openTab('about')">About</a>
+    <a onclick="openTab('contact')">Contact</a>
+  </nav>
+
+  <!-- Tabs -->
+  <div id="home" class="tab active">
+    <h1>Welcome</h1>
+    <p>Welcome to my website!</p>
+  </div>
+
+  <div id="projects" class="tab">
+    <h1>Projects</h1>
+    <p>Three.js :</p>
+    <div id="webgl-container"></div>
+  </div>
+
+  <div id="about" class="tab">
+    <h1>About Me</h1>
+    <p>Write something about yourself me.</p>
+  </div>
+
+  <div id="contact" class="tab">
+    <h1>Contact</h1>
+    <p>Email or links here.</p>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    function openTab(name) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(name).classList.add('active');
+    }
+
+    // Basic Three.js demo (rotating cube)
+    let scene, camera, renderer, cube;
+
+    function initWebGL() {
+      const container = document.getElementById('webgl-container');
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      container.appendChild(renderer.domElement);
+
+      const geometry = new THREE.BoxGeometry();
+      const material = new THREE.MeshNormalMaterial();
+      cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+
+      camera.position.z = 3;
+
+      window.addEventListener('resize', () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+
+      animate();
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+
+    // Initialize WebGL when the Projects tab is first opened
+    let webglInitialized = false;
+    document.querySelector("a[onclick=\"openTab('projects')\"]").addEventListener('click', () => {
+      if (!webglInitialized) {
+        initWebGL();
+        webglInitialized = true;
+      }
+    });
+  </script>
+</body>
+</html>

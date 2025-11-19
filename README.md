@@ -1,1 +1,0 @@
-# c-magniez.github.io
