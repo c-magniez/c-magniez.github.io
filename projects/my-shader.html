@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Shader — Projects — Your Name</title>
+    <title>The Chaos Factory - Projects - Clément Magniez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,9 +16,7 @@
   <body>
     <header class="site-header">
       <nav class="navbar container" aria-label="Main navigation">
-        <a class="brand" href="../index.html"
-          >Your Name<span class="brand-dot">.</span></a
-        >
+        <a class="brand" href="../index.html">Clément Magniez</a>
         <div class="nav-links" id="nav-links">
           <a href="../index.html">Home</a
           ><a href="index.html" aria-current="page">Projects</a
@@ -50,25 +48,32 @@
     <main class="container page-content">
       <article class="article">
         <p class="eyebrow"><a href="index.html">Projects</a> / Shadertoy</p>
-        <h1>My Shader<span class="brand-dot">.</span></h1>
+        <h1>The Chaos Factory</h1>
         <p class="lead">
-          A short introduction to this shader experiment. Describe the idea, the
-          visual result, and what made it interesting to build.
+          Small GPU 2D physics engine.
         </p>
+        <div class="shadertoy-container">
+          <iframe
+            src="https://www.shadertoy.com/embed/XfdyRX?gui=false&t=10&paused=false&muted=false"
+            allowfullscreen
+            title="The Chaos Factory - Shadertoy"
+          >
+          </iframe>
+        </div>
         <div class="article-body">
           <h2>Overview</h2>
           <p>
-            This is a placeholder project page. Add screenshots, an embedded
-            Shadertoy, implementation details, and links to the source as your
-            project takes shape.
+            GPU implementation of Erin Catto's Box2D-lite (https://github.com/erincatto/box2d-lite, MIT License). Small 2D physics engine running in a fragment shader. Broad phase and revolute joints. 
           </p>
-          <h2>Details</h2>
-          <ul>
-            <li><strong>Category:</strong> Shadertoy</li>
-            <li><strong>Tools:</strong> GLSL, Shadertoy</li>
-            <li><strong>Status:</strong> Example entry</li>
-          </ul>
-          <p><a href="https://www.shadertoy.com/">Visit Shadertoy ↗</a></p>
+          <p>
+            <a
+              href="https://www.shadertoy.com/view/XfdyRX"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open on Shadertoy ↗
+            </a>
+          </p>
         </div>
       </article>
     </main>

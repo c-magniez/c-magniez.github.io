@@ -20,8 +20,9 @@
   }
 
   if (icon) {
-    icon.dataset.sun = '/img/sun.svg';
-    icon.dataset.moon = '/img/moon.svg';
+    const basePath = new URL('../img/', document.currentScript?.src || window.location.href);
+    icon.dataset.sun = new URL('sun.svg', basePath).href;
+    icon.dataset.moon = new URL('moon.svg', basePath).href;
   }
   applyTheme(initialTheme);
 
