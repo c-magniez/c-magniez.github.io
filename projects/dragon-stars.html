@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dragon Stars - Projects - Clément Magniez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <script src="../js/theme.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar container" aria-label="Main navigation">
+        <a class="brand" href="../index.html">Clément Magniez</a>
+        <div class="nav-links" id="nav-links">
+          <a href="../index.html">Home</a
+          ><a href="index.html" aria-current="page">Projects</a
+          ><a href="../posts/index.html">Posts</a
+          ><a href="../about.html">About</a>
+        </div>
+        <div class="nav-actions">
+          <a class="icon-link" href="https://github.com/" aria-label="GitHub"
+            ><img src="../img/github.svg" alt="" /></a
+          ><a
+            class="icon-link"
+            href="mailto:hello@example.com"
+            aria-label="Email"
+            ><img src="../img/mail.svg" alt="" /></a
+          ><button class="theme-toggle" type="button" aria-label="Switch theme">
+            <img class="theme-icon" src="../img/sun.svg" alt="" /></button
+          ><button
+            class="menu-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="nav-links"
+          >
+            <span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main class="container page-content">
+      <article class="article">
+        <p class="eyebrow"><a href="index.html">Projects</a> / Shadertoy</p>
+        <h1>Dragon Stars</h1>
+        <p class="lead">
+          200k stars flowing through the Dragon curve.
+        </p>
+        <div class="shadertoy-container">
+          <iframe
+            src="https://www.shadertoy.com/embed/fclcRr?gui=false&t=0&paused=false&muted=false"
+            allowfullscreen
+            title="Dragon Stars - Shadertoy"
+          >
+          </iframe>
+        </div>
+        <div class="article-body">
+          <h2>Overview</h2>
+          <p>
+        Stars flowing through the Dragon Constellation. Voronoi particles tracking for stars along a single continuous closed bezier curve. Originally a submission to <a href = "https://www.asso-afig.fr/site/concours/concours-shader-toy/">2026 JFIG Shadertoy contest</a>.
+          </p>
+          <p>
+            <a
+              href="https://www.shadertoy.com/view/fclcRr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open on Shadertoy ↗
+            </a>
+          </p>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer container">
+      <span>© <span data-year></span> Clément Magniez</span>
+    </footer>
+  </body>
+</html>
