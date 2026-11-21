@@ -16,20 +16,20 @@
   <body>
     <header class="site-header">
       <nav class="navbar container" aria-label="Main navigation">
-        <a class="brand" href="../index.html"
-          >Clément Magniez</a
-        >
+        <a class="brand" href="../index.html">Clément Magniez</a>
         <div class="nav-links" id="nav-links">
           <a href="../index.html">Home</a
           ><a href="../projects/index.html" aria-current="page">Projects</a
-          ><a href="index.html">Research</a
-          ><a href="../about.html">About</a>
+          ><a href="index.html">Research</a><a href="../about.html">About</a>
         </div>
         <div class="nav-actions">
           <a class="icon-link" href="https://github.com/" aria-label="GitHub"
-            ><img src="../img/github.svg" alt="" /></a
-          >
-          <a class="icon-link" href="https://www.shadertoy.com/user/cmgz" aria-label="Shadertoy"
+            ><img src="../img/github.svg" alt=""
+          /></a>
+          <a
+            class="icon-link"
+            href="https://www.shadertoy.com/user/cmgz"
+            aria-label="Shadertoy"
             ><img src="../img/shadertoy.png" alt=""
           /></a>
           <a
@@ -53,30 +53,95 @@
     </header>
     <main class="container page-content">
       <article class="article">
-        <p class="eyebrow"><a href="index.html">Research</a> / GPU</p>
+        <p class="eyebrow"><a href="index.html">Projects</a> / Posts</p>
         <h1>Marching Simplex</h1>
         <p class="lead">
-          An intent to improve the Marching Cubes algorithm gone wrong.
+          An intent to improve the Marching Cubes algorithm gone wrong. [image]
         </p>
         <div class="article-body">
           <h2>Marching Cubes</h2>
           <p>
-            Explanantion
+            Marching cubes is a method from a mesh to create a scalar field
+            (function from R^3 to R), with boundary at f = 0. [image]
           </p>
-          <h2>Marching Tetrahedrons</h2>
           <p>
-            Explanantion
+            Also notorious for being the first software patent which I never
+            understood how it could work.
           </p>
+          <p>
+            Usage in video game for dynamic terrain (children of tomorrow).
+            [image]
+          </p>
+          <p>
+            Idea is the following : evaluate the scalar field at each corner of
+            a cube, to determine which corner is inside/outside the field, and
+            given the possibility instantiate on of the many triangles
+            correctly. [image of pattern]
+          </p>
+          <p>Increasing resolution of the grid : more precision. [image]</p>
+
+          <h2>Marching Tetrahedra</h2>
+          <p>
+            Many edge cases, especially two equivalent dispositions, solved by
+            dual contouring, but causes other issues. So an alternative is
+            tetrahedrons because there are less possibilities and was not
+            patented. [image of pattern]
+          </p>
+          <p>
+            Placed also in a grid, usuall 6 per cubes but also 5 per cubes.
+            [image]
+          </p>
+          <p>
+            Smaller lookup table, but more now 19 edges per cubes vs previous
+            12, which is more costly but can provide more resolution, it's a
+            trade-off, I personnaly don't really like its generated mesh, tends
+            to produce much more faces than marching cube for not so much
+            improved precision.
+          </p>
+
           <h2>Marching Simplex</h2>
           <p>
-            Explanantion
+            The idea is to, instead of forcing ourselves to transform the
+            3D-space tesselation made out of cubes into tetrahedras, rather use
+            a native tetrahedra space tesselation. [image]
           </p>
+          <p>
+            Code slightly more complex as we now need to sample on a
+            body-centered cubic (BCC) latice (notice the sample point inside
+            each voxel which was not present before).
+          </p>
+          <p>
+            After small research when writing this post, I discovered I was not
+            the first coming up with the idea as it was described in "A new
+            tetrahedral tesselation scheme for isosurface generation" (hard to
+            find in open access), and also later described in "Isosurfaces on
+            Optimal Regular Samples" which clearly points at the limitations of
+            BCC (but would have saved me the pleasure implementing it on GPU).
+          </p>
+          <p>A table with triangle count + picture (what I sent to Lyon)</p>
+          <p>A few other models with different scale</p>
+
+          <h2>Code</h2>
+          <p>
+            Still if you are interested for a GPU Unity Compute Shader Marching
+            Cube, Marching Tetrahedrons and Marching Simplex implementation
+            please check it out [gif of the unity scene?]
+          </p>
+          <p>
+            <a
+              target="_blank"
+              href="https://www.shadertoy.com/view/fclcRr"
+              rel="noopener noreferrer"
+            >
+              Open on Github ↗
+            </a>
+          </p>
+          <h2>References</h2>
         </div>
       </article>
     </main>
     <footer class="site-footer container">
-      <span>© <span data-year></span> Clément Magniez</span
-      >
+      <span>© <span data-year></span> Clément Magniez</span>
     </footer>
   </body>
 </html>
