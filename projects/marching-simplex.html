@@ -56,47 +56,105 @@
         <p class="eyebrow"><a href="index.html">Projects</a> / Posts</p>
         <h1>Marching Simplex</h1>
         <p class="lead">
-          An intent to improve the Marching Cubes algorithm gone wrong. [image]
+          An intent to improve the Marching Cube algorithm gone wrong.
         </p>
+
+        <figure class="article-figure">
+          <img
+            src="marching-simplex-img/weird-blob.gif"
+            alt="Illustration of the algorithm of an animated shape."
+          />
+        </figure>
+
         <div class="article-body">
-          <h2>Marching Cubes</h2>
+          <h2>Marching Cube</h2>
           <p>
             Marching cubes is a method from a mesh to create a scalar field
-            (function from R^3 to R), with boundary at f = 0. [image]
+            (function from R^3 to R), with boundary at f = 0.
           </p>
+
+          <figure class="article-figure">
+            <img
+              src="marching-simplex-img/sphere-mc.png"
+              alt="A 3D sphere with its scalar field formula transformed into a mesh."
+            />
+            <figcaption>
+              Marching Cube algorithm turns a scalar field into a mesh.
+            </figcaption>
+          </figure>
+
           <p>
-            Also notorious for being the first software patent which I never
-            understood how it could work.
-          </p>
-          <p>
-            Usage in video game for dynamic terrain (children of tomorrow).
-            [image]
+            Also notorious for being the first "software patent" which is a concept out of reach for me.
+            Usage in video game for dynamic terrain : children of tomorrow, no
+            man's sky. understood how it could work.
           </p>
           <p>
             Idea is the following : evaluate the scalar field at each corner of
             a cube, to determine which corner is inside/outside the field, and
             given the possibility instantiate on of the many triangles
-            correctly. [image of pattern]
+            correctly.
           </p>
-          <p>Increasing resolution of the grid : more precision. [image]</p>
+
+          <figure class="article-figure">
+            <img
+              src="marching-simplex-img/mc-configurations-full.png"
+              alt="15 configurations for Marching Cube."
+            />
+            <figcaption>
+              15 possible configurations for a single Marching Cube cell.
+            </figcaption>
+          </figure>
+
+          <p>Increasing resolution of the grid : more precision.</p>
+
+          <figure class="article-figure">
+            <img
+              src="marching-simplex-img/resolution-mc.gif"
+              alt="Animation with evolution of resolution."
+            />
+            <figcaption>
+              Marching Cube resolution on a sphere from a 3<sup>3</sup> to a 125<sup>3</sup> grid.  
+            </figcaption>
+          </figure>
 
           <h2>Marching Tetrahedra</h2>
           <p>
             Many edge cases, especially two equivalent dispositions, solved by
             dual contouring, but causes other issues. So an alternative is
             tetrahedrons because there are less possibilities and was not
-            patented. [image of pattern]
+            patented.
           </p>
+
+          <figure class="article-figure">
+            <img
+              src="marching-simplex-img/mt-configurations-full.png"
+              alt="3 configurations for Marching Tetrahedra."
+            />
+            <figcaption>
+              3 possible configurations for a single Marching Tetrahedra cell.
+            </figcaption>
+          </figure>
+
           <p>
             Placed also in a grid, usuall 6 per cubes but also 5 per cubes.
-            [image]
           </p>
+
+          <figure class="article-figure">
+            <img
+              src="marching-simplex-img/mt-decomposition.gif"
+              alt="Marching Tetrahedra decomposition."
+            />
+            <figcaption>
+              6 tetrahedras decomposing a cubic cell.
+            </figcaption>
+          </figure>
+
           <p>
             Smaller lookup table, but more now 19 edges per cubes vs previous
             12, which is more costly but can provide more resolution, it's a
             trade-off, I personnaly don't really like its generated mesh, tends
             to produce much more faces than marching cube for not so much
-            improved precision.
+            improved precision. [image marching tetrahedrons]
           </p>
 
           <h2>Marching Simplex</h2>

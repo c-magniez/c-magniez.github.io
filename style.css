@@ -498,3 +498,24 @@ h2 {
   margin: 8px 0 0;
   font-size: 18px;
 }
+
+.article-figure {
+  margin: 35px 0;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.article-figure img {
+  display: block;
+  border: 1px solid var(--border);
+  width: 100%;
+  height: auto;
+}
+
+.article-figure figcaption {
+  padding: 12px 8px 5px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: center;
+}
