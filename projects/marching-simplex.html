@@ -136,18 +136,20 @@
           </figure>
 
           <p>
-            Placed also in a grid, usuall 6 per cubes but also 5 per cubes.
+            Placed also in a grid, usually 6 per cubes but also 5 per cubes.
           </p>
 
+        <div class="article-image-row">
           <figure class="article-figure">
-            <img
-              src="marching-simplex-img/mt-decomposition.gif"
-              alt="Marching Tetrahedra decomposition."
-            />
-            <figcaption>
-              6 tetrahedras decomposing a cubic cell.
-            </figcaption>
+            <img src="marching-simplex-img/mt-decomposition-6-crop.gif" alt="Animation showing the 6 tetrahedras decomposition">
+            <figcaption>Decomposition of a cubic cell into 6 tetrahedrons.</figcaption>
           </figure>
+
+          <figure class="article-figure">
+            <img src="marching-simplex-img/mt-decomposition-5-crop.gif" alt="Animation showing the 5 tetrahedras decomposition">
+            <figcaption>Decomposition of a cubic cell into 5 tetrahedrons.</figcaption>
+          </figure>
+        </div>
 
           <p>
             Smaller lookup table, but more now 19 edges per cubes vs previous
@@ -157,12 +159,34 @@
             improved precision. [image marching tetrahedrons]
           </p>
 
+          <figure class="article-figure">
+            <img
+              src="marching-simplex-img/mt-comparisons-full.png"
+              alt="Marching Cubes / Marching Tetrahedra"
+            />
+            <figcaption>
+              Marching Cubes / Marching Tetrahedra for Sphere, Cube and Cone with 30<sup>3</sup> samples.
+            </figcaption>
+          </figure>
+
           <h2>Marching Simplex</h2>
           <p>
             The idea is to, instead of forcing ourselves to transform the
             3D-space tesselation made out of cubes into tetrahedras, rather use
-            a native tetrahedra space tesselation. [image]
+            a native tetrahedra space tesselation. 
           </p>
+
+          <img
+          <figure class="article-figure">
+              src="marching-simplex-img/ms-tesselation.gif"
+              alt="Space tesselation"
+            />
+            <figcaption>
+              3D space tesselation made out of disphenoid tetrahedras.
+            </figcaption>
+          </figure>
+
+
           <p>
             Code slightly more complex as we now need to sample on a
             body-centered cubic (BCC) latice (notice the sample point inside
@@ -176,8 +200,10 @@
             Optimal Regular Samples" which clearly points at the limitations of
             BCC (but would have saved me the pleasure implementing it on GPU).
           </p>
-          <p>A table with triangle count + picture (what I sent to Lyon)</p>
-          <p>A few other models with different scale</p>
+          <p> Show a bit resolution on a simple model</p>
+          <p> A comparison table with other marching with triangle count + picture (what I sent to Lyon)</p>
+          <p> A few other models</p>
+          <p> An animated model</p>
 
           <h2>Code</h2>
           <p>
